@@ -23,7 +23,7 @@ public class UsuarioEntity implements Serializable {
     private String apellido;
 
     @Column(nullable = false)
-    private long numeroDocumento;
+    private String numeroDocumento;
 
     @Column(nullable = false)
     private int idApartamento;
@@ -56,11 +56,11 @@ public class UsuarioEntity implements Serializable {
         this.apellido = apellido;
     }
 
-    public long getNumeroDocumento() {
+    public String getNumeroDocumento() {
         return this.numeroDocumento;
     }
 
-    public void setNumeroDocumento(long numeroDocumento) {
+    public void setNumeroDocumento(String numeroDocumento) {
         this.numeroDocumento = numeroDocumento;
     }
 

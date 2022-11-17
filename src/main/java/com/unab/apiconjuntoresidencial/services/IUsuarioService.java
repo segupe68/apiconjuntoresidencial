@@ -5,5 +5,6 @@ import com.unab.apiconjuntoresidencial.models.dto.UsuarioDto;
 public interface IUsuarioService {
 
     UsuarioDto crearUsuario(UsuarioDto usuarioDto);
+    UsuarioDto leerUsuario(String numeroDocumento);
     
 }

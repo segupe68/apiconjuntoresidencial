@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.unab.apiconjuntoresidencial.models.dto.UsuarioDto;
 import com.unab.apiconjuntoresidencial.models.peticiones.UsuarioCrearRequestModel;
-import com.unab.apiconjuntoresidencial.models.respuestas.UsuarioDataRestModel;
+import com.unab.apiconjuntoresidencial.models.respuestas.UsuarioDataResModel;
 import com.unab.apiconjuntoresidencial.services.IUsuarioService;
 
 
@@ -24,24 +24,32 @@ public class UsuarioController {
     @Autowired
     IUsuarioService iUsuarioService;
 
-    @GetMapping
-    public String leerUsuario(){
-
-        return "Rodolfo";
-
-    }
+ 
 
     @PostMapping
-    public UsuarioDataRestModel crearUsuario(@RequestBody UsuarioCrearRequestModel usuarioCrearRequestModel){
+    public UsuarioDataResModel crearUsuario(@RequestBody UsuarioCrearRequestModel usuarioCrearRequestModel){
 
         UsuarioDto usuarioDto= modelMapper.map(usuarioCrearRequestModel, UsuarioDto.class);
 
         UsuarioDto usuarioDtoCreado= iUsuarioService.crearUsuario(usuarioDto);
 
-        UsuarioDataRestModel usuarioDataRestModel= modelMapper.map(usuarioDtoCreado,UsuarioDataRestModel.class);
+        UsuarioDataResModel usuarioDataResModel= modelMapper.map(usuarioDtoCreado,UsuarioDataResModel.class);
 
+
+        return usuarioDataResModel;
+    }
+
+    @GetMapping
+    public UsuarioDataResModel leerUsuario(){
+
+        String numeroDocumento="91260467";
+
+        UsuarioDto usuarioDto=iUsuarioService.leerUsuario(numeroDocumento);
+
+        UsuarioDataResModel usuarioDataRestModel= modelMapper.map(usuarioDto,UsuarioDataResModel.class);
 
         return usuarioDataRestModel;
+
     }
     
 }

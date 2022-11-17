@@ -5,7 +5,7 @@ public class UsuarioCrearRequestModel {
     
     private String nombre;
     private String apellido;
-    private long numeroDocumento;
+    private String numeroDocumento;
     private int idApartamento;
     private long numeroTelefonico;
 
@@ -26,11 +26,11 @@ public class UsuarioCrearRequestModel {
         this.apellido = apellido;
     }
 
-    public long getNumeroDocumento() {
+    public String getNumeroDocumento() {
         return this.numeroDocumento;
     }
 
-    public void setNumeroDocumento(long numeroDocumento) {
+    public void setNumeroDocumento(String numeroDocumento) {
         this.numeroDocumento = numeroDocumento;
     }
 

@@ -7,5 +7,7 @@ import com.unab.apiconjuntoresidencial.models.entidades.UsuarioEntity;
 
 @Repository
 public interface IUsuarioRepository extends CrudRepository<UsuarioEntity, Long> {
+
+    UsuarioEntity findByNumeroDocumento(String numeroDocumento);
     
 }
