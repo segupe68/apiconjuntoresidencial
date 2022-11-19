@@ -1,5 +1,7 @@
 package com.unab.apiconjuntoresidencial.models.respuestas;
 
+import java.util.List;
+
 public class UsuarioDataResModel {
 
     
@@ -8,7 +10,7 @@ public class UsuarioDataResModel {
     private String numeroDocumento;
     private int idApartamento;
     private long numeroTelefonico;
-
+    private List<InmuebleDataResModel> inmuebleDataResModelList;
 
     public String getNombre() {
         return this.nombre;
@@ -49,6 +51,16 @@ public class UsuarioDataResModel {
     public void setNumeroTelefonico(long numeroTelefonico) {
         this.numeroTelefonico = numeroTelefonico;
     }
+
+
+    public List<InmuebleDataResModel> getInmuebleDataResModelList() {
+        return this.inmuebleDataResModelList;
+    }
+
+    public void setInmuebleDataResModelList(List<InmuebleDataResModel> inmuebleDataResModelList) {
+        this.inmuebleDataResModelList = inmuebleDataResModelList;
+    }
+
 
     
 }

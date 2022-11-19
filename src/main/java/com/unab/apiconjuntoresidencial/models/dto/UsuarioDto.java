@@ -1,6 +1,7 @@
 package com.unab.apiconjuntoresidencial.models.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class UsuarioDto implements Serializable{
 
@@ -12,6 +13,7 @@ public class UsuarioDto implements Serializable{
     private String numeroDocumento;
     private int idApartamento;
     private long numeroTelefonico;
+    private List<InmuebleDto> inmuebleDtoList;
 
 
     public long getId() {
@@ -61,6 +63,16 @@ public class UsuarioDto implements Serializable{
     public void setNumeroTelefonico(long numeroTelefonico) {
         this.numeroTelefonico = numeroTelefonico;
     }
+
+
+    public List<InmuebleDto> getInmuebleDtoList() {
+        return this.inmuebleDtoList;
+    }
+
+    public void setInmuebleDtoList(List<InmuebleDto> inmuebleDtoList) {
+        this.inmuebleDtoList = inmuebleDtoList;
+    }
+
 
     
 }

@@ -1,13 +1,26 @@
 package com.unab.apiconjuntoresidencial.models.entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity(name = "usuario")
+@Table(indexes={
+    
+    @Index(columnList ="numeroDocumento", name ="index_numeroDocumento", unique=true),
+    @Index(columnList ="idApartamento", name ="index_idApartamento", unique=true)
+  
+
+})
 public class UsuarioEntity implements Serializable {
 
     private static final long serialVersionUID=1L;
@@ -30,6 +43,9 @@ public class UsuarioEntity implements Serializable {
 
     @Column(nullable = false)
     private long numeroTelefonico;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioEntity")
+    private List<InmuebleEntity> inmuebleEntityList= new ArrayList<>();
 
 
     public long getId() {
@@ -79,6 +95,16 @@ public class UsuarioEntity implements Serializable {
     public void setNumeroTelefonico(long numeroTelefonico) {
         this.numeroTelefonico = numeroTelefonico;
     }
+
+
+    public List<InmuebleEntity> getInmuebleEntityList() {
+        return this.inmuebleEntityList;
+    }
+
+    public void setInmuebleEntityList(List<InmuebleEntity> inmuebleEntityList) {
+        this.inmuebleEntityList = inmuebleEntityList;
+    }
+
 
 
 }

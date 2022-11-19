@@ -2,7 +2,7 @@ package com.unab.apiconjuntoresidencial.services;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+//import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.unab.apiconjuntoresidencial.models.dto.UsuarioDto;
@@ -21,11 +21,11 @@ public class UsuarioService implements IUsuarioService{
     @Override
     public UsuarioDto crearUsuario(UsuarioDto usuarioDto) {
 
-        if(iUsuarioRepository.findByNumeroDocumento(usuarioDto.getNumeroDocumento()) !=null){
+      if(iUsuarioRepository.findByNumeroDocumento(usuarioDto.getNumeroDocumento()) !=null){
             throw new RuntimeException("Este Numero de Cedula ya se encuentra registrado");
         }
 
-        // TODO Auto-generated method stub
+        
         UsuarioEntity usuarioEntity= modelMapper.map(usuarioDto, UsuarioEntity.class);
         
         UsuarioEntity usuarioEntityCreado=iUsuarioRepository.save(usuarioEntity);
@@ -40,13 +40,13 @@ public class UsuarioService implements IUsuarioService{
 
         UsuarioEntity usuarioEntity= iUsuarioRepository.findByNumeroDocumento(numeroDocumento);
 
-        if(usuarioEntity==null){
+       /* if(usuarioEntity==null){
             throw new UsernameNotFoundException(numeroDocumento);
             
-        }
+        }*/
 
         UsuarioDto usuarioDto= modelMapper.map(usuarioEntity, UsuarioDto.class);
-        // TODO Auto-generated method stub
+        
         return usuarioDto;
     }
     
